@@ -1,0 +1,15 @@
+name: Scheduled Job
+on:
+  schedule:
+    # 使用 cron 语法（UTC 时区）
+    - cron: '20 7 * * *'  # 每天 UTC 时间 07:20 运行：15:20
+
+jobs:
+  run-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run command
+        run: echo "定时任务执行于 $(date)"
